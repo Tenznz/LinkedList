@@ -43,4 +43,12 @@ public class LinkedList implements LinkedListI {
 			System.out.println();
 		}
 	}
+
+	public void addAtFirst(int data) {
+
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
+
+	}
 }

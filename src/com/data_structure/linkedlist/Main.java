@@ -6,9 +6,9 @@ public class Main {
 		LinkedList linkedList = new LinkedList();
 		System.out.println("LinkedList :");
 		linkedList.add(30);
-		linkedList.add(56);
 		linkedList.add(70);
-
+		
+		linkedList.addAtFirst(56);
 		linkedList.display();
 	}
 
