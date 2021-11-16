@@ -12,6 +12,7 @@ public class LinkedList implements LinkedListI {
 		}
 	}
 
+	@Override
 	public boolean add(int data) {
 		boolean isAdded = false;
 		Node newNode = new Node(data);
@@ -44,6 +45,7 @@ public class LinkedList implements LinkedListI {
 		}
 	}
 
+	@Override
 	public void addAtFirst(int data) {
 
 		Node newNode = new Node(data);
@@ -51,4 +53,25 @@ public class LinkedList implements LinkedListI {
 		head = newNode;
 
 	}
+
+	@Override
+	public void addAt(int position, int data) {
+		if (position < 1) {
+			System.out.println("Invalid Position");
+		} else if (position == 1) {
+			addAtFirst(data);
+		} else {
+			Node newNode = new Node(data);
+			Node temp = head;
+			int count = 1;
+			while (count < position - 1) {
+				temp = temp.next;
+				count++;
+			}
+			Node curr = temp.next;
+			temp.next = newNode;
+			newNode.next = curr;
+		}
+	}
+
 }

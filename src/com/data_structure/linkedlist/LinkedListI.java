@@ -6,4 +6,5 @@ public interface LinkedListI {
 	public void display();
 
 	public void addAtFirst(int data);
+	public void addAt(int position ,int data);
 }
