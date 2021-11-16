@@ -55,6 +55,18 @@ public class LinkedList implements LinkedListI {
 	}
 
 	@Override
+	public int popAtFirst() {
+		if (head == null) {
+			System.out.println("List is empty, hence deletation not possible");
+			return 0;
+		} else {
+			Node temp = head;
+			head = temp.next;
+			return temp.key;
+		}
+	}
+
+	@Override
 	public void addAt(int position, int data) {
 		if (position < 1) {
 			System.out.println("Invalid Position");

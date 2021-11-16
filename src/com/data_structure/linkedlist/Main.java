@@ -9,6 +9,7 @@ public class Main {
 		linkedList.add(70);	 
 		linkedList.addAt(2, 30);
 		linkedList.display();
-
+		linkedList.popAtFirst();
+		linkedList.display();
 	}
 }
