@@ -51,7 +51,6 @@ public class LinkedList implements LinkedListI {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
-
 	}
 
 	@Override
@@ -64,6 +63,27 @@ public class LinkedList implements LinkedListI {
 			head = temp.next;
 			return temp.key;
 		}
+	}
+
+	@Override
+	public int popLast() {
+		int data;
+		if (head == null) {
+			System.out.println("List is empty, hence deletation not possible");
+			return 0;
+		} else if (head.next == null) {
+			Node temp = head;
+			head = null;
+			return temp.key;
+		} else {
+			Node temp = head;
+			while (temp.next.next != null) {
+				temp = temp.next;
+			}
+			data = temp.next.key;
+			temp.next = null;
+		}
+		return data;
 	}
 
 	@Override

@@ -11,4 +11,5 @@ public interface LinkedListI {
 
 	int popAtFirst();
 
+	int popLast();
 }

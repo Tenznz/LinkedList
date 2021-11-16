@@ -6,10 +6,12 @@ public class Main {
 		LinkedList linkedList = new LinkedList();
 		System.out.println("LinkedList :");
 		linkedList.add(56);
-		linkedList.add(70);	 
+		linkedList.add(70);
 		linkedList.addAt(2, 30);
 		linkedList.display();
-		linkedList.popAtFirst();
+		// linkedList.popAtFirst();
+		System.out.println("After popLast method");
+		linkedList.popLast();
 		linkedList.display();
 	}
 }
