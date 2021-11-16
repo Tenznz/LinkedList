@@ -1,6 +1,8 @@
 package com.data_structure.linkedlist;
 
 public interface LinkedListI {
-	void display();
+	public boolean add(int a);
+
+	public void display();
 
 }
