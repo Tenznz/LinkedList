@@ -9,9 +9,9 @@ public class Main {
 		linkedList.add(70);
 		linkedList.addAt(2, 30);
 		linkedList.display();
-		// linkedList.popAtFirst();
-		System.out.println("After popLast method");
-		linkedList.popLast();
-		linkedList.display();
+		// linkedList.pop();
+		//System.out.println("After popLast method");
+		// linkedList.popLast();
+		linkedList.findNode(30);
 	}
 }

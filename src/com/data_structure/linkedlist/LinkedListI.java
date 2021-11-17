@@ -9,7 +9,9 @@ public interface LinkedListI {
 
 	public void addAt(int position, int data);
 
-	int popAtFirst();
+	int pop();
 
 	int popLast();
+
+	void findNode(int data);
 }

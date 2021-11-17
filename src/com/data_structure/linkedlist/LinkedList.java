@@ -54,7 +54,7 @@ public class LinkedList implements LinkedListI {
 	}
 
 	@Override
-	public int popAtFirst() {
+	public int pop() {
 		if (head == null) {
 			System.out.println("List is empty, hence deletation not possible");
 			return 0;
@@ -81,7 +81,7 @@ public class LinkedList implements LinkedListI {
 				temp = temp.next;
 			}
 			data = temp.next.key;
-			temp.next = null;
+			temp.next = null; // tail
 		}
 		return data;
 	}
@@ -106,4 +106,20 @@ public class LinkedList implements LinkedListI {
 		}
 	}
 
+	@Override
+	public void findNode(int data) {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("List is empty");
+		} else {
+			while (temp != null) {
+				temp = temp.next;
+				if (temp.key == data) {
+					System.out.println(temp.key + " is found at Node:\n->" + temp);
+					return;
+				}
+			}
+			System.out.print(data + " is Not found");
+		}
+	}
 }
