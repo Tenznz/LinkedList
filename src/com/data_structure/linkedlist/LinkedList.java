@@ -2,6 +2,7 @@ package com.data_structure.linkedlist;
 
 public class LinkedList implements LinkedListI {
 	Node head;
+	int size = 0;
 
 	private class Node {
 		int key;
@@ -19,6 +20,7 @@ public class LinkedList implements LinkedListI {
 		if (head == null) {
 			head = newNode;
 			isAdded = true;
+			size++;
 		} else {
 			Node temp = head;
 
@@ -27,7 +29,9 @@ public class LinkedList implements LinkedListI {
 			}
 			temp.next = newNode;
 			isAdded = true;
+			size++;
 		}
+
 		return isAdded;
 	}
 
@@ -51,6 +55,7 @@ public class LinkedList implements LinkedListI {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
+		size++;
 	}
 
 	@Override
@@ -61,6 +66,7 @@ public class LinkedList implements LinkedListI {
 		} else {
 			Node temp = head;
 			head = temp.next;
+			size--;
 			return temp.key;
 		}
 	}
@@ -74,6 +80,7 @@ public class LinkedList implements LinkedListI {
 		} else if (head.next == null) {
 			Node temp = head;
 			head = null;
+			size--;
 			return temp.key;
 		} else {
 			Node temp = head;
@@ -83,6 +90,7 @@ public class LinkedList implements LinkedListI {
 			data = temp.next.key;
 			temp.next = null; // tail
 		}
+		size--;
 		return data;
 	}
 
@@ -103,9 +111,10 @@ public class LinkedList implements LinkedListI {
 			Node curr = temp.next;
 			temp.next = newNode;
 			newNode.next = curr;
+			size++;
 		}
 	}
-
+	@Override
 	public void add(int data1, int data) {
 
 		Node newNode = new Node(data);
@@ -114,8 +123,8 @@ public class LinkedList implements LinkedListI {
 			return;
 		}
 		Node temp = head;
-		while (temp!=null) {
-			
+		while (temp != null) {
+
 			if (temp.key == data1) {
 				break;
 			}
@@ -125,8 +134,10 @@ public class LinkedList implements LinkedListI {
 		Node curr = temp.next;
 		temp.next = newNode;
 		newNode.next = curr;
+		size++;
 
 	}
+
 	@Override
 	public boolean searchNode(int elememt) {
 		if (head == null) {
@@ -141,10 +152,38 @@ public class LinkedList implements LinkedListI {
 				isFound = true;
 				break;
 			}
-		temp = temp.next;
+			temp = temp.next;
 		}
 		return isFound;
 	}
+	@Override
+	public boolean pop(int data) {
+		if (!searchNode(data)) {
+			System.out.println("Data not present");
+			return false;
+		}
+		Node temp = head;
+		Node prev = null;
+		if (temp != null && temp.key == data) {
+			head = temp.next;
+			size--;
+			return true;
+		}
+		while (temp != null) {
+			if (temp.key == data) {
+				prev.next = temp.next;
+				size--;
+				return true;
+			}
+			prev = temp;
+			temp = temp.next;
+		}
+		return false;
 
-	
+	}
+
+	public int getSize() {
+		return size;
+	}
+
 }
