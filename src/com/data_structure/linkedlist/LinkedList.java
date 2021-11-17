@@ -106,20 +106,45 @@ public class LinkedList implements LinkedListI {
 		}
 	}
 
-	@Override
-	public void findNode(int data) {
-		Node temp = head;
-		if (head == null) {
-			System.out.println("List is empty");
-		} else {
-			while (temp != null) {
-				temp = temp.next;
-				if (temp.key == data) {
-					System.out.println(temp.key + " is found at Node:\n->" + temp);
-					return;
-				}
-			}
-			System.out.print(data + " is Not found");
+	public void add(int data1, int data) {
+
+		Node newNode = new Node(data);
+
+		if (!searchNode(data1)) {
+			return;
 		}
+		Node temp = head;
+		while (temp!=null) {
+			
+			if (temp.key == data1) {
+				break;
+			}
+			temp = temp.next;
+		}
+
+		Node curr = temp.next;
+		temp.next = newNode;
+		newNode.next = curr;
+
 	}
+	@Override
+	public boolean searchNode(int elememt) {
+		if (head == null) {
+
+			System.out.println("List is empty");
+			return false;
+		}
+		Node temp = head;
+		boolean isFound = false;
+		while (temp != null) {
+			if (temp.key == elememt) {
+				isFound = true;
+				break;
+			}
+		temp = temp.next;
+		}
+		return isFound;
+	}
+
+	
 }

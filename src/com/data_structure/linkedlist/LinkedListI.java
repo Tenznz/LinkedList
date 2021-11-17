@@ -13,5 +13,5 @@ public interface LinkedListI {
 
 	int popLast();
 
-	void findNode(int data);
+	boolean searchNode(int data);
 }
